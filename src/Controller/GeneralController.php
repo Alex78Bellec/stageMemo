@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\MemoAlex;
+use App\Repository\MemoAlexRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class GeneralController extends AbstractController
 {
@@ -40,10 +42,11 @@ class GeneralController extends AbstractController
     /**
      * @Route("/pageAlex", name="pagealex")
      */
-    public function pagealex()
+    public function pagealex(MemoAlex $contents)
     {
+        dump($contents);
         return $this->render('general/pagealex.html.twig', [
-            'controller_name' => 'GeneralController',
+            'contents' => $contents,
         ]);
     }    
 }
