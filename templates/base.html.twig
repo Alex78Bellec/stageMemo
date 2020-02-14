@@ -22,17 +22,37 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('index') }}">Accueil</a>
             </li>
+
             {# <li class="nav-item">
             <a class="nav-link" href="#">Back Office</a>
             </li> #}
+
+            {% if is_granted('ROLE_LUDI') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('pageludi') }}">Page Ludivine</a>
+            </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_MEL') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('pagemelvin') }}">Page Melvin</a>
+            </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ALEX') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('pagealex') }}">Page Alexandre</a>
+            </li>
+            {% endif %}
+
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
             </li>
-            {# <li class="nav-item">
-                <a class="nav-link" href="#">Déconnexion</a>
-            </li> #}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            </li>
         </ul>
     </div>
     </nav>
